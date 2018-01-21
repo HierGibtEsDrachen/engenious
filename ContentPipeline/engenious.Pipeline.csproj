@@ -103,12 +103,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\engenious\engenious.csproj">
-      <Project>{E1FF7BDB-D631-4D4D-B5A1-988778AD15B6}</Project>
-      <Name>engenious</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="Aspose.3D, Version=17.11.0.0, Culture=neutral, PublicKeyToken=f071c641d0b4582b, processorArchitecture=MSIL">
       <HintPath>..\packages\Aspose.3D.17.11\lib\net40\Aspose.3D.dll</HintPath>
     </Reference>
@@ -129,6 +123,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pipeline\Editors\Controls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\engenious\engenious.csproj">
+      <Project>{1866c9de-0504-4626-9c0c-68f1813ab6a9}</Project>
+      <Name>engenious</Name>
+    </ProjectReference>
   </ItemGroup>
   <Target Name="SharpFontDependencies" BeforeTargets="PrepareForBuild">
     <!-- TODO try and make this smarter, at least pick x86/x64, maybe see which MSVC redist is available -->

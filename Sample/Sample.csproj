@@ -55,7 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\engenious\engenious.csproj">
-      <Project>{e1ff7bdb-d631-4d4d-b5a1-988778ad15b6}</Project>
+      <Project>{1866c9de-0504-4626-9c0c-68f1813ab6a9}</Project>
       <Name>engenious</Name>
     </ProjectReference>
   </ItemGroup>
