@@ -83,7 +83,7 @@ namespace engenious
             ConstructContext();
 
             GraphicsDevice = new GraphicsDevice(this, _context);
-            GraphicsDevice.Viewport = new Viewport(window.ClientRectangle);
+            GraphicsDevice.Viewport = new Viewport(new Rectangle(window.ClientRectangle));
             window.Context.MakeCurrent(window.WindowInfo);
             window.Context.LoadAll();
             GL.Viewport(window.ClientRectangle);
@@ -116,7 +116,7 @@ namespace engenious
             };
             window.Resize += delegate(object sender, EventArgs e)
             {
-                GraphicsDevice.Viewport = new Viewport(window.ClientRectangle);
+                GraphicsDevice.Viewport = new Viewport(new Rectangle(window.ClientRectangle));
                 GL.Viewport(window.ClientRectangle);
 
                 Resized?.Invoke(sender,e);
@@ -182,7 +182,7 @@ namespace engenious
 
         public ContentManager Content{ get; private set; }
 
-        public Icon Icon { get { return Window.Icon; } set { Window.Icon = value; } }
+        public OpenTK.Icon Icon { get { return Window.Icon; } set { Window.Icon = value; } }
         
         public Window Window{ get; private set; }
 

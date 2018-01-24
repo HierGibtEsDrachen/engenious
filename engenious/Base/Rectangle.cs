@@ -4,6 +4,11 @@ namespace engenious
 {
     public struct Rectangle
     {
+        public Rectangle(OpenTK.Rectangle rectangle)
+            : this(rectangle.X, rectangle.Y, rectangle.Width, rectangle.Height)
+        {
+
+        }
         public Rectangle(Point location, Point size)
             : this(location.X, location.Y, size.X, size.Y)
         {
@@ -22,13 +27,13 @@ namespace engenious
             Height = height;
         }
 
-        public int X{ get; set; }
+        public int X { get; set; }
 
-        public int Y{ get; set; }
+        public int Y { get; set; }
 
-        public int Width{ get; set; }
+        public int Width { get; set; }
 
-        public int Height{ get; set; }
+        public int Height { get; set; }
 
         public int Left => X;
 
@@ -39,7 +44,7 @@ namespace engenious
         public int Bottom => Y + Height;
 
         public Size Size
-        { 
+        {
             get { return new Size(Width, Height); }
             set
             {
@@ -49,8 +54,8 @@ namespace engenious
         }
 
         public Point Location
-        { 
-            get { return new Point(X, Y); } 
+        {
+            get { return new Point(X, Y); }
             set
             {
                 X = value.X;

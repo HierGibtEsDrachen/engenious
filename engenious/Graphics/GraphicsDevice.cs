@@ -66,7 +66,7 @@ namespace engenious.Graphics
                 GL.Clear((OpenTK.Graphics.OpenGL4.ClearBufferMask) mask);
             }
         }
-        public void Clear(ClearBufferMask mask, System.Drawing.Color color)
+        public void Clear(ClearBufferMask mask, OpenTK.Color color)
         {
             using (Execute.OnUiContext)
             {

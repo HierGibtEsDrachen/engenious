@@ -11,7 +11,7 @@ namespace engenious
         internal Window(GameWindow baseWindow)
         {
             BaseWindow = baseWindow;
-            baseWindow.KeyDown += delegate(object sender, KeyboardKeyEventArgs e)
+            baseWindow.KeyDown += delegate (object sender, KeyboardKeyEventArgs e)
             {
                 if (e.Key == Key.F4 && e.Alt)
                 {
@@ -20,46 +20,62 @@ namespace engenious
             };
 
         }
-        public Rectangle ClientRectangle{
-            get{
-                return new Rectangle(BaseWindow.ClientRectangle.X,BaseWindow.ClientRectangle.Y,BaseWindow.ClientRectangle.Width,BaseWindow.ClientRectangle.Height);
+        public Rectangle ClientRectangle
+        {
+            get
+            {
+                return new Rectangle(BaseWindow.ClientRectangle.X, BaseWindow.ClientRectangle.Y, BaseWindow.ClientRectangle.Width, BaseWindow.ClientRectangle.Height);
             }
-            set{
-                BaseWindow.ClientRectangle = new System.Drawing.Rectangle(value.X,value.Y,value.Width,value.Height);
-            }
-        }
-        public Size ClientSize{
-            get{
-                return new Size(BaseWindow.ClientSize.Width,BaseWindow.ClientSize.Height);
-            }
-            set{
-                BaseWindow.ClientSize = new System.Drawing.Size(value.Width,value.Height);
+            set
+            {
+                
+                BaseWindow.ClientRectangle = new OpenTK.Rectangle(value.X, value.Y, value.Width, value.Height);
             }
         }
-        public Icon Icon { get { return BaseWindow.Icon; } set { BaseWindow.Icon = value; } }
-        public bool Visible{
-            get{
+        public Size ClientSize
+        {
+            get
+            {
+                return new Size(BaseWindow.ClientSize.Width, BaseWindow.ClientSize.Height);
+            }
+            set
+            {
+                BaseWindow.ClientSize = new OpenTK.Size(value.Width, value.Height);
+            }
+        }
+        public OpenTK.Icon Icon { get { return BaseWindow.Icon; } set { BaseWindow.Icon = value; } }
+        public bool Visible
+        {
+            get
+            {
                 return BaseWindow.Visible;
             }
-            set{
+            set
+            {
                 BaseWindow.Visible = value;
             }
         }
         public bool Focused => BaseWindow.Focused;
 
-        public bool CursorVisible{
-            get{
+        public bool CursorVisible
+        {
+            get
+            {
                 return BaseWindow.CursorVisible;
             }
-            set{
+            set
+            {
                 BaseWindow.CursorVisible = value;
             }
         }
-        public bool IsBorderless{
-            get{
+        public bool IsBorderless
+        {
+            get
+            {
                 return BaseWindow.WindowBorder != WindowBorder.Hidden;
             }
-            set{
+            set
+            {
                 if (value)
                     BaseWindow.WindowBorder = WindowBorder.Hidden;
                 else
@@ -67,11 +83,14 @@ namespace engenious
             }
         }
         private bool _allowUserResizing;
-        public bool AllowUserResizing{
-            get{
+        public bool AllowUserResizing
+        {
+            get
+            {
                 return _allowUserResizing;
             }
-            set{
+            set
+            {
                 _allowUserResizing = value;
                 if (IsBorderless)
                     return;
@@ -79,48 +98,63 @@ namespace engenious
             }
         }
         private bool _fullscreen;
-        private WindowState _oWindowState= WindowState.Normal;
-        public bool Fullscreen{
-            get{
+        private WindowState _oWindowState = WindowState.Normal;
+        public bool Fullscreen
+        {
+            get
+            {
                 return _fullscreen;
             }
-            set{
+            set
+            {
                 if (!_fullscreen)
                     _oWindowState = BaseWindow.WindowState;
                 _fullscreen = value;
                 BaseWindow.WindowState = _fullscreen ? WindowState.Fullscreen : _oWindowState;
             }
         }
-        public string Title{
-            get{
+        public string Title
+        {
+            get
+            {
                 return BaseWindow.Title;
             }
-            set{
+            set
+            {
                 BaseWindow.Title = value;
             }
         }
-        public Point Position{
-            get{
-                return new Point(BaseWindow.X,BaseWindow.Y);
+        public Point Position
+        {
+            get
+            {
+                return new Point(BaseWindow.X, BaseWindow.Y);
             }
-            set{
+            set
+            {
                 X = value.X;
                 Y = value.Y;
             }
         }
-        public int X{
-            get{
+        public int X
+        {
+            get
+            {
                 return BaseWindow.X;
             }
-            set{
+            set
+            {
                 BaseWindow.X = value;
             }
         }
-        public int Y{
-            get{
+        public int Y
+        {
+            get
+            {
                 return BaseWindow.Y;
             }
-            set{
+            set
+            {
                 BaseWindow.Y = value;
             }
         }
